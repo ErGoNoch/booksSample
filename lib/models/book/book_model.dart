@@ -6,7 +6,7 @@ part 'book_model.g.dart';
 
 @JsonSerializable()
 class Book {
-  String id;
+  int id;
   String title;
   @JsonKey(name: "media_type") String mediaType;
   @JsonKey(name: "download_count") int downloadCount;

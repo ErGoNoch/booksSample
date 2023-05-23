@@ -5,9 +5,9 @@ part 'person_model.g.dart';
 @JsonSerializable()
 class Person {
   @JsonKey(name: 'birth_year')
-  String? birthYear;
+  int? birthYear;
   @JsonKey(name: 'death_year')
-  String? deathYear;
+  int? deathYear;
   String name;
 
   Person(this.birthYear, this.deathYear, this.name);
