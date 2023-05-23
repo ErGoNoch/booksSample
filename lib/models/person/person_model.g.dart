@@ -6,13 +6,13 @@ part of 'person_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Person _$$_PersonFromJson(Map<String, dynamic> json) => _$_Person(
-      birthYear: json['birth_year'] as String?,
-      deathYear: json['death_year'] as String?,
-      name: json['name'] as String,
+Person _$PersonFromJson(Map<String, dynamic> json) => Person(
+      json['birth_year'] as String?,
+      json['death_year'] as String?,
+      json['name'] as String,
     );
 
-Map<String, dynamic> _$$_PersonToJson(_$_Person instance) => <String, dynamic>{
+Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
       'birth_year': instance.birthYear,
       'death_year': instance.deathYear,
       'name': instance.name,

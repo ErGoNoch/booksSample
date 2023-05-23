@@ -1,27 +1,27 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'book_model.freezed.dart';
+import '../person/person_model.dart';
 
 part 'book_model.g.dart';
 
-@freezed
-class Book with _$Book {
-  const factory Book({
-    required String id,
-    required String title,
-    @JsonKey(name: "media_type") required String mediaType,
-    @JsonKey(name: "download_count") required int downloadCount,
-    required List<String> subjects,
-    required List<String> bookshelves,
-    required List<String> languages,
-    bool? copyright,
-  }) = _Book;
+@JsonSerializable()
+class Book {
+  String id;
+  String title;
+  @JsonKey(name: "media_type") String mediaType;
+  @JsonKey(name: "download_count") int downloadCount;
+  List<String> subjects;
+  List<String> bookshelves;
+  List<String> languages;
+  bool? copyright;
+  List<Person> authors;
+  List<Person> translators;
 
-  // "authors": <array of Persons>,
-  // "translators": <array of Persons>,
-  // "copyright": <boolean or null>,
-  // "media_type": <string>,
-  // "formats": <Format>,
+  Book(this.id, this.title, this.mediaType,
+      this.downloadCount, this.subjects, this.bookshelves, this.languages,
+      this.copyright, this.authors, this.translators);
 
-  factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
+  //fromJson
+  factory Book.fromJson(Map<String, dynamic> json) =>
+      _$BookFromJson(json);
 }
