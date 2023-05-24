@@ -22,16 +22,3 @@ Book _$BookFromJson(Map<String, dynamic> json) => Book(
           .map((e) => Person.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
-
-Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'media_type': instance.mediaType,
-      'download_count': instance.downloadCount,
-      'subjects': instance.subjects,
-      'bookshelves': instance.bookshelves,
-      'languages': instance.languages,
-      'copyright': instance.copyright,
-      'authors': instance.authors,
-      'translators': instance.translators,
-    };

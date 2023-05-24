@@ -14,11 +14,3 @@ BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) => BaseResponse(
           .map((e) => Book.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
-
-Map<String, dynamic> _$BaseResponseToJson(BaseResponse instance) =>
-    <String, dynamic>{
-      'count': instance.count,
-      'next': instance.next,
-      'previous': instance.previous,
-      'results': instance.results,
-    };

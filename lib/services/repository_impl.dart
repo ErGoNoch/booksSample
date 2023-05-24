@@ -8,8 +8,8 @@ import 'network/dio_factory.dart';
 import 'network/error_handler.dart';
 import 'network/network_info.dart';
 
-final serviceProvider =
-    Provider((ref) => RepositoryImpl(Api(DioFactory().getClientDio())));
+final api = Api(DioFactory().getClientDio());
+final serviceProvider = Provider((ref) => RepositoryImpl(api));
 
 class RepositoryImpl implements Repository {
   final Api _api;
@@ -25,7 +25,8 @@ class RepositoryImpl implements Repository {
         final response = await _api.getBooks();
         return ApiResponse<BaseResponse>(response: response);
       } catch (error) {
-        return (ApiResponse(error: ErrorHandler.handle(error).failure));
+        var failure = ErrorHandler.handle(error).failure;
+        return (ApiResponse(error: failure));
       }
     } else {
       // return connection error
