@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import '../../utils/constants.dart';
 import 'failure.dart';
 
-
 enum DataSource {
   success,
   noContent,
@@ -111,10 +110,8 @@ extension DataSourceExtension on DataSource {
           ResponseMessage.defaultResponseMessage,
         );
       case DataSource.success:
-      // TODO(Ernesto): Handle this case.
         break;
       case DataSource.noContent:
-      // TODO(Ernesto): Handle this case.
         break;
     }
     return Failure(
@@ -132,9 +129,9 @@ class ResponseCode {
   static const int forbidden = 403; // failure, api rejected the request
   static const int unauthorised = 401; // failure user is not authorised
   static const int notFound =
-  404; // failure, api url is not correct and not found
+      404; // failure, api url is not correct and not found
   static const int internalServerError =
-  500; // failure, crash happened in server side
+      500; // failure, crash happened in server side
 
   // local status code
   static const int defaultResponseCode = -1;

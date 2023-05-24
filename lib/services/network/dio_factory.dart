@@ -2,8 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../../config_reader.dart';
-
 const String applicationJson = "application/json";
 const String contentType = "content-type";
 const String accept = "accept";
@@ -29,9 +27,7 @@ class DioFactory {
         receiveTimeout: Duration(milliseconds: timeOut),
         headers: headers);
 
-    if (kReleaseMode) {
-      print("release mode no logs");
-    } else {
+    if (!kReleaseMode) {
       dio.interceptors.add(PrettyDioLogger(
           requestHeader: true, requestBody: true, responseHeader: true));
     }
