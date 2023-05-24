@@ -8,19 +8,18 @@ import 'network/dio_factory.dart';
 import 'network/error_handler.dart';
 import 'network/network_info.dart';
 
-final serviceProvider = Provider((ref) => RepositoryImpl(
-    Api(DioFactory().getClientDio()),
-    NetworkInfoImpl(InternetConnectionChecker())));
+final serviceProvider =
+    Provider((ref) => RepositoryImpl(Api(DioFactory().getClientDio())));
 
 class RepositoryImpl implements Repository {
   final Api _api;
-  final NetworkInfo _networkInfo;
 
-  RepositoryImpl(this._api, this._networkInfo);
+  RepositoryImpl(this._api);
 
   @override
   Future<ApiResponse<BaseResponse>> getBooks() async {
-    if (await _networkInfo.isConnected) {
+    final networkInfo = NetworkInfoImpl(InternetConnectionChecker());
+    if (await networkInfo.isConnected) {
       try {
         // its safe to call the API
         final response = await _api.getBooks();

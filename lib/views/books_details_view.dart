@@ -8,7 +8,7 @@ class BookDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (_, ref, child) {
-      final book = ref.read(bookDetailsViewModelProvider);
+      final book = ref.read(bookDetailsViewModelProvider.notifier).getBook();
       return Scaffold(
           appBar: AppBar(
             title: Text('${book?.title}'),

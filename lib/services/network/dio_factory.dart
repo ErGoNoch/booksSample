@@ -4,9 +4,10 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../config_reader.dart';
 
-const String APPLICATION_JSON = "application/json";
-const String CONTENT_TYPE = "content-type";
-const String ACCEPT = "accept";
+const String applicationJson = "application/json";
+const String contentType = "content-type";
+const String accept = "accept";
+const String baseUrl = "http://gutendex.com";
 
 class DioFactory {
   Dio getClientDio() {
@@ -18,11 +19,12 @@ class DioFactory {
     //     'Basic ${base64.encode(utf8.encode('$oracleUser:$password'))}';
     //
     Map<String, dynamic> headers = {
-      CONTENT_TYPE: APPLICATION_JSON,
+      contentType: applicationJson,
     };
 
     dio.options = BaseOptions(
-        baseUrl: '${ConfigReader.baseUrl()}',
+        // baseUrl: '${ConfigReader.baseUrl()}',
+        baseUrl: baseUrl,
         connectTimeout: Duration(milliseconds: timeOut),
         receiveTimeout: Duration(milliseconds: timeOut),
         headers: headers);

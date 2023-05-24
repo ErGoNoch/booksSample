@@ -11,4 +11,8 @@ class BookDetailsViewModel extends StateNotifier<Book?> {
   void setBook({required Book? book}) async {
     state = book;
   }
+
+  Book? getBook() {
+    return state;
+  }
 }
