@@ -99,7 +99,7 @@ Future<void> main() async {
     expect(find.text('The Adventures of Sherlock Holmes'), findsOneWidget);
   });
 
-  testWidgets('renders the HomePage and navigates to DetailsPage',
+  testWidgets('renders the BooksView and navigates to BookDetailsView',
       (tester) async {
     await tester.pumpWidget(
       ProviderScope(
