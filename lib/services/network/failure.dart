@@ -1,4 +1,7 @@
+// coverage:ignore-file
+
 import 'error_handler.dart';
+
 
 class Failure {
   int code; // 200 or 400

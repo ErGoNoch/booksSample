@@ -1,4 +1,5 @@
 import 'package:books_sample/models/book/book_model.dart';
+import 'package:books_sample/models/response/base_response_model.dart';
 import 'package:books_sample/services/network/api.dart';
 import 'package:books_sample/services/repository.dart';
 import 'package:books_sample/services/repository_impl.dart';
@@ -16,14 +17,14 @@ class BooksViewModel {
   //
   BooksViewModel(this.repository);
 
-  Future<List<Book>?> getBooks() async {
+  Future<BaseResponse?> getBooks() async {
     var response = await repository.getBooks();
     if (response.isSuccess()) {
-      return response.response?.results;
+      return response.response;
     } else {
       showDialogFlash(
           title: 'Error', content: response.error?.message ?? 'General error');
-      return [];
+      return null;
     }
   }
 }
