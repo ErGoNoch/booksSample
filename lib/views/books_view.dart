@@ -31,7 +31,7 @@ class BooksView extends StatelessWidget {
                           height: 3,
                         ),
                     itemBuilder: (_, index) {
-                      final book = result?[index];
+                      final book = result?.results[index];
                       return Hero(
                           tag: book?.id ?? '',
                           child: ListTile(
@@ -55,7 +55,7 @@ class BooksView extends StatelessWidget {
                                 .withOpacity(0.3),
                           ));
                     },
-                    itemCount: result?.length ?? 0),
+                    itemCount: result?.results.length ?? 0),
                 error: (error, trace) => BooksErrorWidget(
                     onTap: () => ref.refresh(booksViewFutureProvider)),
                 loading: () =>

@@ -1,15 +1,12 @@
 import 'package:books_sample/models/response/base_response_model.dart';
 import 'package:books_sample/services/network/api.dart';
 import 'package:books_sample/services/repository.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-import 'network/dio_factory.dart';
+import 'api_response.dart';
+
 import 'network/error_handler.dart';
 import 'network/network_info.dart';
-
-final api = Api(DioFactory().getClientDio());
-final serviceProvider = Provider((ref) => RepositoryImpl(api));
 
 class RepositoryImpl implements Repository {
   final Api _api;

@@ -1,11 +1,14 @@
+// coverage:ignore-file
+
 import 'package:flash/flash.dart';
 import 'package:flash/flash_helper.dart';
+
 import 'package:flutter/material.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void showDialogFlash({String title = '', String content = 'General error'}) {
-  navigatorKey.currentContext!.showFlash(
+  navigatorKey.currentContext?.showFlash(
       builder: (context, controller) => FlashBar(
             controller: controller,
             title: Text(title, style: const TextStyle(fontSize: 16)),

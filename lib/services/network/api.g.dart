@@ -10,8 +10,9 @@ part of 'api.dart';
 
 class _Api implements Api {
   _Api(
-    this._dio,
-  );
+    this._dio, {
+    this.baseUrl,
+  });
 
   final Dio _dio;
 
@@ -22,7 +23,7 @@ class _Api implements Api {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<BaseResponse>(Options(
       method: 'GET',

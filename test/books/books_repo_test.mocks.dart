@@ -8,7 +8,7 @@
 import 'dart:async' as _i4;
 
 import 'package:books_sample/models/response/base_response_model.dart' as _i5;
-import 'package:books_sample/services/network/api.dart' as _i2;
+import 'package:books_sample/services/api_response.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 import 'books_repo_test.dart' as _i3;
